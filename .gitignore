@@ -42,6 +42,16 @@ build/Release
 node_modules/
 jspm_packages/
 
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+/cypress/videos/
+/cypress/screenshots/
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -128,3 +138,13 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
