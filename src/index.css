@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .title-one {
+    @apply text-white font-semibold text-lg cursor-pointer;
+  }
+
+  .title-two {
+    @apply text-white text-sm cursor-pointer;
+  }
+}

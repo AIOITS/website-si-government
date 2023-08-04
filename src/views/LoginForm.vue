@@ -1,9 +1,9 @@
 <template>
-  <div class="flex items-center justify-center h-screen">
+  <div class="container flex items-center justify-center h-screen">
     <div
       class="flex flex-col items-center justify-center w-full h-full gap-1 bg-dark-blue"
     >
-      <img src="../assets/government.svg" class="logo" alt="Government logo" />
+      <img src="@/assets/government.svg" class="logo" alt="Government logo" />
       <p class="text-2xl font-bold text-center text-white">SI Government</p>
       <p class="text-lg text-center text-white">
         Sistem pengelolaan data terintegrasi oleh Pemerintah
