@@ -10,9 +10,46 @@ const router = createRouter({
       component: LoginForm,
     },
     {
-      path: "/dashboard",
-      name: "dashboard",
-      component: () => import("@/views/Dashboard.vue"),
+      path: "/sekilas",
+      name: "sekilas",
+      component: () => import("@/views/SekilasView.vue"),
+    },
+    {
+      path: "/bahan-bakar",
+      name: "bahan-bakar",
+      children: [
+        {
+          path: "",
+          name: "pembelian",
+          component: () => import("@/views/BahanBakar/PembelianView.vue"),
+        },
+        {
+          path: "penggunaan",
+          name: "penggunaan",
+          component: () => import("@/views/BahanBakar/PenggunaanView.vue"),
+        },
+        {
+          path: "pengajuan",
+          name: "pengajuan",
+          component: () => import("@/views/BahanBakar/PengajuanView.vue"),
+        },
+      ],
+    },
+    {
+      path: "/lalu-lintas",
+      name: "lalu-lintas",
+      children: [
+        {
+          path: "kecelakaan",
+          name: "kecelakaan",
+          component: () => import("@/views/LaluLintas/KecelakaanView.vue"),
+        },
+        {
+          path: "pelanggaran",
+          name: "pelanggaran",
+          component: () => import("@/views/LaluLintas/PelanggaranView.vue"),
+        },
+      ],
     },
   ],
 });
