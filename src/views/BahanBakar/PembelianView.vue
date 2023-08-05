@@ -6,10 +6,75 @@
         title="Pembelian Bahan Bakar"
         sub_title="Data terkait pembelian bahan bakar"
       />
-      <div class="flex-row flex-wrap gap-2 flex items-center justify-end">
+      <div class="flex-row flex-wrap gap-2 flex items-end justify-end">
         <EditBox title="Wilayah" sub_title="Indonesia" />
         <EditBox title="Jenis bahan bakar" sub_title="Minyak keseluruhan" />
         <EditBox title="1 tahun terakhir" />
+        <div>
+          <!-- modal box for wilayah -->
+          <Modal
+            class="hidden"
+            title="Wilayah"
+            custom_class="right-0 top-2"
+            @cancel="app.cancelFunction"
+            @terapkan="app.getProvince"
+          >
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+          </Modal>
+          <!-- modal box for jenis bahan bakar -->
+          <Modal
+            class="hidden"
+            title="Jenis bahan bakar"
+            custom_class="right-0 top-2"
+            @cancel="app.cancelFunction"
+            @terapkan="app.getProvince"
+          >
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+          </Modal>
+          <!-- modal for time -->
+          <Modal
+            class="hidden"
+            title="Rentang"
+            custom_class="right-0 top-2"
+            @cancel="app.cancelFunction"
+            @terapkan="app.getProvince"
+          >
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+          </Modal>
+        </div>
       </div>
     </div>
     <!-- first content -->
@@ -25,9 +90,53 @@
       <!-- third title content -->
       <div class="flex flex-row items-center justify-between">
         <p class="text-lg font-bold text-primary-gray">Data Pembelian BBM</p>
-        <div class="flex-row gap-2 flex-warp flex-center">
+        <div
+          class="flex-row flex-wrap justify-end items-center gap-2 flex-warp flex-center"
+        >
           <EditBox title="Wilayah" sub_title="Suarabaya" />
           <EditBox title="1 tahun terakhir" />
+          <!-- modal box for wilayah -->
+          <Modal
+            class="hidden"
+            title="Wilayah"
+            custom_class="right-0 top-4"
+            @cancel="app.cancelFunction"
+            @terapkan="app.getProvince"
+          >
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+          </Modal>
+          <!-- modal box rentang -->
+          <Modal
+            class="hidden"
+            title="Rentang"
+            custom_class="right-0 top-4"
+            @cancel="app.cancelFunction"
+            @terapkan="app.getProvince"
+          >
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+            <div class="flex flex-row gap-2 items-center justify-center">
+              <input type="radio" name="list" id="list" class="w-3 h-3" />
+              <label for="list" class="text-xs">Tanggal terbaru</label>
+            </div>
+          </Modal>
         </div>
       </div>
       <!-- info box third content -->
@@ -81,6 +190,8 @@ import PieChart from "@/components/Chart/PieChart.vue";
 import ColorBox from "@/components/Content/ColorBox.vue";
 import TableContent from "@/components/Table/TableContent.vue";
 import ContentWithBackground from "@/components/Content/ContentWithBackground.vue";
+import Modal from "@/components/Modal/Modal.vue";
+import { useApp } from "@/stores";
 
 export default {
   components: {
@@ -92,6 +203,14 @@ export default {
     ColorBox,
     TableContent,
     ContentWithBackground,
+    Modal,
+  },
+  setup() {
+    const app = useApp();
+
+    return {
+      app,
+    };
   },
 };
 </script>

@@ -2,7 +2,8 @@
   <ContentWithBackground>
     <!-- title main graphics -->
     <TitleContent :title="title">
-      <div
+      <router-link
+        to="/bahan-bakar"
         v-if="is_sekilas"
         class="flex flex-row items-center justify-between gap-1 cursor-pointer hover:underline hover:underline-offset-2 hover:decoration-secondary-gray"
       >
@@ -12,7 +13,7 @@
           class="w-3 -rotate-90 text-secondary-gray"
           alt=""
         />
-      </div>
+      </router-link>
     </TitleContent>
     <!-- info box main graphics -->
     <div class="full-content">

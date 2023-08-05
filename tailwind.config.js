@@ -17,6 +17,7 @@ export default {
       "primary-green": "#00b595",
       "secondary-green": "#e0f1f0",
       "primary-blue": "#00bdf7",
+      line: "#a6abbd",
     },
     extend: {},
   },
