@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import LoadingVue from "./components/Loading.vue";
-import { useApp } from "./stores";
+import LoadingVue from "@/components/Loading.vue";
+import { useApp } from "@/stores";
 
 export default {
   setup() {

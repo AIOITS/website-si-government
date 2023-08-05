@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row items-start justify-center gap-2">
+  <div class="flex flex-row items-center justify-start gap-2">
     <p
       class="text-sm underline cursor-pointer underline-offset-2 text-primary-gray decoration-primary-gray"
     >

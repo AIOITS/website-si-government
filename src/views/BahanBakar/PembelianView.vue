@@ -6,7 +6,7 @@
         title="Pembelian Bahan Bakar"
         sub_title="Data terkait pembelian bahan bakar"
       />
-      <div class="flex-row flex-wrap gap-2 flex-center">
+      <div class="flex-row flex-wrap gap-2 flex items-center justify-end">
         <EditBox title="Wilayah" sub_title="Indonesia" />
         <EditBox title="Jenis bahan bakar" sub_title="Minyak keseluruhan" />
         <EditBox title="1 tahun terakhir" />
