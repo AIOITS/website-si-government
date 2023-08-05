@@ -1,8 +1,27 @@
 <template>
-  <div class="font-bold">Hello World!</div>
+  <div class="top-0 bottom-0 left-0 right-0">
+    <RouterView :class="app.loading ? 'hidden' : ''" />
+    <LoadingVue v-if="app.loading" />
+  </div>
 </template>
 
-<script></script>
+<script>
+import LoadingVue from "@/components/Loading.vue";
+import { useApp } from "@/stores";
+
+export default {
+  setup() {
+    const app = useApp();
+
+    return {
+      app,
+    };
+  },
+  components: {
+    LoadingVue,
+  },
+};
+</script>
 
 <style scoped>
 .logo {
