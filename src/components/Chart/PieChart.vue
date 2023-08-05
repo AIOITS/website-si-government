@@ -1,7 +1,7 @@
 <template>
   <ContentWithBackground>
     <p class="font-bold text-primary-gray">{{ title }}</p>
-    <PieTest class="" />
+    <PieTest class="self-center w-full" />
   </ContentWithBackground>
 </template>
 

@@ -1,10 +1,7 @@
 <template>
-  <Pie
-    id="my-chart-id"
-    :options="chartOptions"
-    :data="chartData"
-    class="w-56"
-  />
+  <div :style="chartContainerStyle">
+    <Pie id="my-chart-id" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <script>
@@ -23,6 +20,22 @@ ChartJS.register(Title, Tooltip, Legend, PieController, ArcElement); // Register
 export default {
   name: "PieChart",
   components: { Pie },
+  computed: {
+    chartContainerStyle() {
+      return {
+        width: "40vh",
+        height: "40vh",
+        "@media (max-width: 1023px)": {
+          height: "50vh",
+          width: "50vh",
+        },
+        "@media (max-width: 767px)": {
+          height: "60vh",
+          width: "60vh",
+        },
+      };
+    },
+  },
   data() {
     return {
       chartData: {
@@ -42,6 +55,7 @@ export default {
         ],
       },
       chartOptions: {
+        maintainAspectRatio: false,
         responsive: true,
         plugins: {
           legend: {
