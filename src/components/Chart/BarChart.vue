@@ -1,8 +1,7 @@
 <template>
   <ContentWithBackground>
     <!-- title main graphics -->
-    <div class="flex flex-row items-center justify-between">
-      <p class="text-lg font-bold text-primary-gray">{{ title }}</p>
+    <TitleContent :title="title">
       <div
         v-if="is_sekilas"
         class="flex flex-row items-center justify-between gap-1 cursor-pointer hover:underline hover:underline-offset-2 hover:decoration-secondary-gray"
@@ -14,7 +13,7 @@
           alt=""
         />
       </div>
-    </div>
+    </TitleContent>
     <!-- info box main graphics -->
     <div class="full-content">
       <ColorBox
@@ -44,12 +43,14 @@
 import ColorBox from "@/components/Content/ColorBox.vue";
 import TestVue from "@/components/Chart/Test.vue";
 import ContentWithBackground from "@/components/Content/ContentWithBackground.vue";
+import TitleContent from "@/components/Title/TitleContent.vue";
 
 export default {
   components: {
     ColorBox,
     TestVue,
     ContentWithBackground,
+    TitleContent,
   },
   props: {
     is_sekilas: {

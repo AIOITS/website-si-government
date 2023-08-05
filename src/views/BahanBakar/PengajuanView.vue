@@ -1,6 +1,6 @@
 <template>
   <Dashboard nav_title="Bahan Bakar" nav_subtitle="Pengajuan Subsidi">
-    <TitleContent
+    <TitleOnScreen
       title="Pengajuan Subsidi"
       sub_title="Data terkait pembelian bahan bakar"
     />
@@ -9,12 +9,12 @@
 
 <script>
 import Dashboard from "@/views/Dashboard.vue";
-import TitleContent from "@/components/Title/TitleContent.vue";
+import TitleOnScreen from "@/components/Title/TitleOnScreen.vue";
 
 export default {
   components: {
     Dashboard,
-    TitleContent,
+    TitleOnScreen,
   },
 };
 </script>

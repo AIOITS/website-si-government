@@ -2,7 +2,7 @@
   <Dashboard nav_title="Bahan Bakar" nav_subtitle="Pembelian Bahan Bakar">
     <!-- title content -->
     <div class="flex flex-row justify-between">
-      <TitleContent
+      <TitleOnScreen
         title="Pembelian Bahan Bakar"
         sub_title="Data terkait pembelian bahan bakar"
       />
@@ -74,7 +74,7 @@
 
 <script>
 import Dashboard from "@/views/Dashboard.vue";
-import TitleContent from "@/components/Title/TitleContent.vue";
+import TitleOnScreen from "@/components/Title/TitleOnScreen.vue";
 import EditBox from "@/components/Content/EditBox.vue";
 import BarChart from "@/components/Chart/BarChart.vue";
 import PieChart from "@/components/Chart/PieChart.vue";
@@ -85,7 +85,7 @@ import ContentWithBackground from "@/components/Content/ContentWithBackground.vu
 export default {
   components: {
     Dashboard,
-    TitleContent,
+    TitleOnScreen,
     EditBox,
     BarChart,
     PieChart,

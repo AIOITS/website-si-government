@@ -70,7 +70,7 @@
 <script>
 import Sidebar from "@/components/Sidebar.vue";
 import TitleNavBar from "@/components/Title/TitleNavBar.vue";
-import TitleContent from "@/components/Title/TitleContent.vue";
+import TitleOnScreen from "@/components/Title/TitleOnScreen.vue";
 import ColorBox from "@/components/Content/ColorBox.vue";
 import TestVue from "@/components/Chart/Test.vue";
 import RoundedColorBox from "@/components/Content/RoundedColorBox.vue";
@@ -79,7 +79,7 @@ export default {
   components: {
     Sidebar,
     TitleNavBar,
-    TitleContent,
+    TitleOnScreen,
     ColorBox,
     TestVue,
     RoundedColorBox,
