@@ -10,4 +10,12 @@
   .title-two {
     @apply text-white text-sm cursor-pointer;
   }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .full-content {
+    @apply flex flex-col flex-wrap w-full lg:grid lg:grid-flow-col lg:justify-stretch;
+  }
 }

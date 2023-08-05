@@ -14,7 +14,7 @@ export default {
     },
     sub_title: {
       type: String,
-      default: "Sub Title",
+      required: false,
     },
   },
 };

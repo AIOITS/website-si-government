@@ -8,7 +8,7 @@
       class="flex items-center justify-center w-full mt-10 mb-4 xl:gap-3 lg:gap-4 xl:flex-row lg:flex-col"
     >
       <img src="@/assets/government.svg" class="w-10" alt="SI Government" />
-      <p class="font-bold text-white">SI Government</p>
+      <p class="font-bold text-white text-center">SI Government</p>
     </router-link>
     <div class="flex flex-col gap-4">
       <router-link to="/sekilas" class="title-one">Sekilas</router-link>

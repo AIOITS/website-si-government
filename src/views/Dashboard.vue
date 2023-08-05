@@ -4,7 +4,7 @@
     <div class="hidden w-1/5 gap-4 bg-primary-gray lg:flex lg:flex-col">
       <Sidebar />
     </div>
-    <div class="w-full">
+    <div class="lg:w-4/5 w-full">
       <!-- Main Content -->
       <div
         class="flex flex-row justify-between px-5 py-3 border-b-2 border-gray-300 shadow-md"
@@ -29,7 +29,7 @@
               />
             </svg>
           </div>
-          <TitleNavBar title="Sekilas" />
+          <TitleNavBar :title="nav_title" :sub_title="nav_subtitle" />
         </div>
         <div class="flex flex-row items-center justify-center gap-4">
           <div class="w-4">
@@ -58,7 +58,11 @@
       </div>
 
       <!-- Content -->
-      <slot></slot>
+      <div class="mx-5 mb-20 mt-7">
+        <div class="flex flex-col w-full gap-5">
+          <slot></slot>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -79,6 +83,16 @@ export default {
     ColorBox,
     TestVue,
     RoundedColorBox,
+  },
+  props: {
+    nav_title: {
+      type: String,
+      required: true,
+    },
+    nav_subtitle: {
+      type: String,
+      required: false,
+    },
   },
 };
 </script>
