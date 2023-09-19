@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
   <Dashboard nav_title="Sekilas">
     <!-- title content -->
