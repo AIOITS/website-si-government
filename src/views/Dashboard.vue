@@ -4,7 +4,7 @@
     <div class="hidden w-1/5 bg-primary-gray lg:flex lg:flex-col">
       <Sidebar />
     </div>
-    <div class="lg:w-4/5 w-full">
+    <div class="w-full lg:w-4/5">
       <!-- Main Content -->
       <div
         class="flex flex-row justify-between px-5 py-3 border-b-2 border-gray-300 shadow-md"
@@ -14,12 +14,12 @@
           <BurgerMenu @click="app.toggleSidebar()" />
           <!-- sidebar menu -->
           <div
-            class="grid grid-cols-3 fixed left-0 top-0 w-full"
+            class="fixed top-0 left-0 grid w-full grid-cols-3"
             v-if="app.sidebar"
           >
             <Sidebar class="col-span-2 bg-primary-gray" />
             <div
-              class="bg-gray-400 col-span-1 opacity-70"
+              class="col-span-1 bg-gray-400 opacity-70"
               @click="app.toggleSidebar()"
             ></div>
           </div>
@@ -59,7 +59,7 @@
           <!-- sign out -->
           <div
             v-if="app.is_profile"
-            class="fixed top-10 hover:underline hover:underline-offset-2 right-5 cursor-pointer text-sm bg-white border-2 border-third-gray rounded-md px-3 py-1"
+            class="fixed px-3 py-1 text-sm bg-white border-2 rounded-md cursor-pointer top-10 hover:underline hover:underline-offset-2 right-5 border-third-gray"
           >
             Sign Out
           </div>
@@ -81,8 +81,7 @@ import Sidebar from "@/components/Sidebar.vue";
 import TitleNavBar from "@/components/Title/TitleNavBar.vue";
 import TitleOnScreen from "@/components/Title/TitleOnScreen.vue";
 import ColorBox from "@/components/Content/ColorBox.vue";
-import TestVue from "@/components/Chart/Test.vue";
-import RoundedColorBox from "@/components/Content/RoundedColorBox.vue";
+import BarChart from "@/components/Chart/BarChart.vue";
 import BurgerMenu from "@/components/BurgerMenu.vue";
 import { useApp } from "@/stores";
 
@@ -92,8 +91,7 @@ export default {
     TitleNavBar,
     TitleOnScreen,
     ColorBox,
-    TestVue,
-    RoundedColorBox,
+    BarChart,
     BurgerMenu,
     Sidebar,
   },

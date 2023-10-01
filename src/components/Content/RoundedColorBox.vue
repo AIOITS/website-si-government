@@ -1,9 +1,16 @@
 <template>
-  <!-- <div class="py-1 cursor-pointer rounded-xl bg-dark-blue">
-    <p class="font-bold text-center text-white">{{ title }}</p>
-  </div> -->
-  <div class="py-1 cursor-pointer rounded-2xl hover:bg-gray-300">
-    <p class="font-bold text-center text-primary-gray">{{ title }}</p>
+  <div
+    class="py-1 cursor-pointer"
+    :class="[
+      is_active ? 'rounded-xl bg-dark-blue' : 'rounded-2xl hover:bg-gray-300',
+    ]"
+  >
+    <p
+      class="font-bold text-center"
+      :class="[is_active ? 'text-white' : 'text-primary-gray']"
+    >
+      {{ title }}
+    </p>
   </div>
 </template>
 
@@ -13,6 +20,10 @@ export default {
     title: {
       type: String,
       default: "Title",
+    },
+    is_active: {
+      type: Boolean,
+      default: false,
     },
   },
 };

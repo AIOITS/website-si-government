@@ -1,66 +1,89 @@
 <template>
-  <ContentWithBackground>
-    <!-- title main graphics -->
-    <TitleContent :title="title">
-      <router-link
-        to="/bahan-bakar"
-        v-if="is_sekilas"
-        class="flex flex-row items-center justify-between gap-1 cursor-pointer hover:underline hover:underline-offset-2 hover:decoration-secondary-gray"
-      >
-        <p class="text-sm text-primary-gray">Laporan Lengkap</p>
-        <img
-          src="@/assets/arrow-down.svg"
-          class="w-3 -rotate-90 text-secondary-gray"
-          alt=""
-        />
-      </router-link>
-    </TitleContent>
-    <!-- info box main graphics -->
-    <div class="full-content">
-      <ColorBox
-        class="bg-primary-yellow"
-        title="123.654.987"
-        sub_title="Total Penjualan BBM bersubsidi"
-      />
-      <ColorBox
-        class="bg-primary-green"
-        title="123.654.987"
-        sub_title="Total Penjualan BBM bersubsidi"
-      />
-      <ColorBox
-        class="bg-primary-blue"
-        title="123.654.987"
-        sub_title="Total Penjualan BBM bersubsidi"
-      />
-    </div>
-    <!-- main graphics -->
-    <div class="flex flex-row items-center justify-center w-full max-h-96">
-      <TestVue />
-    </div>
-  </ContentWithBackground>
+  <Bar :options="chartOptions" :data="chartData" />
 </template>
 
 <script>
-import ColorBox from "@/components/Content/ColorBox.vue";
-import TestVue from "@/components/Chart/Test.vue";
-import ContentWithBackground from "@/components/Content/ContentWithBackground.vue";
-import TitleContent from "@/components/Title/TitleContent.vue";
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
+import { useApp } from "@/stores";
+
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+);
 
 export default {
-  components: {
-    ColorBox,
-    TestVue,
-    ContentWithBackground,
-    TitleContent,
+  name: "BarChart",
+  components: { Bar },
+  setup() {
+    const app = useApp();
+
+    return {
+      app,
+    };
   },
   props: {
-    is_sekilas: {
-      type: Boolean,
+    data: {
+      type: Object,
       required: true,
     },
-    title: {
-      type: String,
-      required: true,
+  },
+  data() {
+    return {
+      chartData: {
+        labels: [...this.app.history_pengisian_by_date.labels],
+        datasets: [
+          {
+            label: "Subsidi",
+            data: [...this.app.history_pengisian_by_date.subsidi],
+            backgroundColor: "#d5a419",
+          },
+          {
+            label: "Non Subsidi",
+            data: [...this.app.history_pengisian_by_date.non_subsidi],
+            backgroundColor: "#00b595",
+          },
+        ],
+      },
+      chartOptions: {
+        responsive: true,
+        parsing: true,
+        normalized: true,
+      },
+    };
+  },
+  mounted() {
+    // this.renderChart(this.chartData, this.chartOptions);
+    // console.log("this.chartData.labels");
+    // console.log(this.app.history_pengisian_by_date.labels);
+  },
+  async created() {
+    await this.app.useHistoryPengisianByDate();
+  },
+  watch: {
+    "app.history_pengisian_by_date": {
+      handler() {
+        this.chartData.labels = this.app.history_pengisian_by_date.labels;
+        this.chartData.datasets[0].data =
+          this.app.history_pengisian_by_date.subsidi;
+        this.chartData.datasets[1].data =
+          this.app.history_pengisian_by_date.non_subsidi;
+        // console.log("watch: ");
+        // console.log(this.chartData.labels);
+      },
+      deep: true,
     },
   },
 };

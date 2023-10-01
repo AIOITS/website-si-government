@@ -1,24 +1,59 @@
 <template>
-  <ContentWithBackground>
-    <p class="font-bold text-primary-gray">{{ title }}</p>
-    <PieTest class="self-center w-full" />
-  </ContentWithBackground>
+  <div :style="chartContainerStyle">
+    <Pie id="my-chart-id" :options="chartOptions" :data="chartData" />
+  </div>
 </template>
 
 <script>
-import PieTest from "@/components/Chart/PieTest.vue";
-import ContentWithBackground from "@/components/Content/ContentWithBackground.vue";
+import { Pie } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  PieController,
+  ArcElement,
+} from "chart.js";
+
+ChartJS.register(Title, Tooltip, Legend, PieController, ArcElement);
 
 export default {
-  components: {
-    PieTest,
-    ContentWithBackground,
+  name: "PieChart",
+  components: { Pie },
+  computed: {
+    chartContainerStyle() {
+      return {
+        width: "40vh",
+        height: "50vh",
+        "@media (max-width: 1023px)": {
+          width: "50vh",
+          height: "60vh",
+        },
+        "@media (max-width: 767px)": {
+          width: "60vh",
+          height: "70vh",
+        },
+      };
+    },
   },
   props: {
-    title: {
-      type: String,
+    chartData: {
+      type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      chartOptions: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    };
   },
 };
 </script>
