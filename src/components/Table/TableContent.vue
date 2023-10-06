@@ -33,8 +33,8 @@
           </th>
           <td class="px-6 py-3">{{ item.name }}</td>
           <td class="px-6 py-3">{{ item.alamat }}</td>
-          <td class="px-6 py-3">{{ item.subsidi }}</td>
-          <td class="px-6 py-3">{{ item.non_subsidi }}</td>
+          <td class="px-6 py-3">{{ item.subsidi.toFixed(2) }}</td>
+          <td class="px-6 py-3">{{ item.non_subsidi.toFixed(2) }}</td>
         </tr>
       </tbody>
     </table>

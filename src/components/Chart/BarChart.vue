@@ -13,7 +13,7 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
-import { useApp } from "@/stores";
+import { useApp } from "../../stores/index";
 
 ChartJS.register(
   Title,
@@ -42,7 +42,14 @@ export default {
   },
   data() {
     return {
-      chartData: {
+      chartOptions: {
+        responsive: true,
+      },
+    };
+  },
+  computed: {
+    chartData() {
+      return {
         labels: [...this.app.history_pengisian_by_date.labels],
         datasets: [
           {
@@ -56,36 +63,7 @@ export default {
             backgroundColor: "#00b595",
           },
         ],
-      },
-      chartOptions: {
-        responsive: true,
-        parsing: true,
-        normalized: true,
-      },
-    };
-  },
-  mounted() {
-    // this.renderChart(this.chartData, this.chartOptions);
-    // console.log("this.chartData.labels");
-    // console.log(this.app.history_pengisian_by_date.labels);
-  },
-  async created() {
-    // await this.app.useHistoryPengisianByDate();
-    console.log("in created");
-    console.log(this.app.history_pengisian_by_date);
-  },
-  watch: {
-    "app.history_pengisian_by_date": {
-      handler() {
-        this.chartData.labels = this.app.history_pengisian_by_date.labels;
-        this.chartData.datasets[0].data =
-          this.app.history_pengisian_by_date.subsidi;
-        this.chartData.datasets[1].data =
-          this.app.history_pengisian_by_date.non_subsidi;
-        // console.log("watch: ");
-        // console.log(this.chartData.labels);
-      },
-      deep: true,
+      };
     },
   },
 };

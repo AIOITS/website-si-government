@@ -19,21 +19,20 @@
     <div class="full-content">
       <ColorBox
         class="bg-primary-yellow"
-        :title="app.bahan_bakar.subsidi.toString()"
+        :title="app.bahan_bakar.subsidi.toFixed(2).toString()"
         sub_title="Total Penjualan BBM bersubsidi"
       />
       <ColorBox
         class="bg-primary-green"
-        :title="app.bahan_bakar.non_subsidi.toString()"
+        :title="app.bahan_bakar.non_subsidi.toFixed(2).toString()"
         sub_title="Total Penjualan BBM non-subsidi"
       />
       <ColorBox
         class="bg-primary-blue"
-        :title="app.bahan_bakar.total.toString()"
+        :title="app.bahan_bakar.total.toFixed(2).toString()"
         sub_title="Total Penjualan BBM"
       />
     </div>
-    <p>{{ app.history_pengisian_by_date }}</p>
     <!-- main graphics -->
     <div class="flex flex-row items-center justify-center w-full max-h-96">
       <BarChart :data="app.history_pengisian_by_date" />
