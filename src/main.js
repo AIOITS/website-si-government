@@ -27,6 +27,10 @@ const apolloClient = new ApolloClient({
 //   store.router = markRaw(router);
 // });
 
+const apolloProvider = createApolloProvider({
+  defaultClient: apolloClient,
+});
+
 const app = createApp({
   setup() {
     pinia.use(({ store }) => {
@@ -38,4 +42,4 @@ const app = createApp({
   render: () => h(App),
 });
 
-app.use(router).use(pinia).mount("#app");
+app.use(router).use(pinia).use(apolloProvider).mount("#app");

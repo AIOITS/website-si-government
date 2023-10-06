@@ -70,7 +70,9 @@ export default {
     // console.log(this.app.history_pengisian_by_date.labels);
   },
   async created() {
-    await this.app.useHistoryPengisianByDate();
+    // await this.app.useHistoryPengisianByDate();
+    console.log("in created");
+    console.log(this.app.history_pengisian_by_date);
   },
   watch: {
     "app.history_pengisian_by_date": {

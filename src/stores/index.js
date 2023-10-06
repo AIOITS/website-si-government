@@ -75,6 +75,8 @@ export const useApp = defineStore({
           subsidi: [],
           non_subsidi: [],
         };
+        console.log("data=======");
+        console.log(data);
 
         for (const month in data) {
           this.history_pengisian_by_date.labels.push(
