@@ -77,12 +77,10 @@ export default {
     this.app.history_pengisian_by_date.labels = [];
     this.app.history_pengisian_by_date.subsidi = [];
     this.app.history_pengisian_by_date.non_subsidi = [];
-    await this.app.useHistoryPengisianByGroup();
-    // await this.app.useHistoryPengisianByDate();
-  },
-  async mounted() {
-    // await this.app.useHistoryPengisianByGroup();
-    await this.app.useHistoryPengisianByDate();
+    await Promise.all([
+      this.app.useHistoryPengisianByGroup(),
+      this.app.useHistoryPengisianByDate(),
+    ]);
   },
   data() {
     return {

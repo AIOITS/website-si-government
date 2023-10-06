@@ -1,5 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginForm from "@/views/LoginForm.vue";
+import jwt_decode from "jwt-decode";
+
+const isAuthenticated = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const decode_token = jwt_decode(token);
+    const exp = decode_token.exp;
+    const date = new Date();
+    const now = Math.floor(date.getTime() / 1000);
+    if (exp < now) {
+      localStorage.removeItem("token");
+      return false;
+    }
+  }
+  return !!token;
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,10 +29,24 @@ const router = createRouter({
       path: "/sekilas",
       name: "sekilas",
       component: () => import("@/views/SekilasView.vue"),
+      beforeEnter: (to, from, next) => {
+        if (isAuthenticated()) {
+          next();
+        } else {
+          next({ force: true, name: "login" });
+        }
+      },
     },
     {
       path: "/bahan-bakar",
       name: "bahan-bakar",
+      beforeEnter: (to, from, next) => {
+        if (isAuthenticated()) {
+          next();
+        } else {
+          next({ force: true, name: "login" });
+        }
+      },
       children: [
         {
           path: "",
@@ -38,6 +68,13 @@ const router = createRouter({
     {
       path: "/lalu-lintas",
       name: "lalu-lintas",
+      beforeEnter: (to, from, next) => {
+        if (isAuthenticated()) {
+          next();
+        } else {
+          next({ force: true, name: "login" });
+        }
+      },
       children: [
         {
           path: "kecelakaan",

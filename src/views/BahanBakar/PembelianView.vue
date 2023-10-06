@@ -245,9 +245,11 @@ export default {
     };
   },
   async created() {
-    await this.app.useJenisKendaraan();
-    await this.app.useJenisBahanBakar();
-    await this.app.useListSPBU();
+    await Promise.all([
+      this.app.useJenisKendaraan(),
+      this.app.useJenisBahanBakar(),
+      this.app.useListSPBU(),
+    ]);
   },
   data() {
     return {

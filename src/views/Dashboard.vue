@@ -59,6 +59,7 @@
           <!-- sign out -->
           <div
             v-if="app.is_profile"
+            @click="app.logout()"
             class="fixed px-3 py-1 text-sm bg-white border-2 rounded-md cursor-pointer top-10 hover:underline hover:underline-offset-2 right-5 border-third-gray"
           >
             Sign Out

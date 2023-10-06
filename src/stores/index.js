@@ -8,12 +8,20 @@ import { useUtils } from "./utils";
 import { GET_JENIS_KENDARAAN } from "../api/query/getJenisKendaraan";
 import { GET_JENIS_BAHAN_BAKAR } from "../api/query/getJenisBahanBakar";
 import { GET_LIST_SPBU } from "../api/query/getListSPBU";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import router from "../router";
 
 export const useApp = defineStore({
   id: "app",
   state: () => ({
+    base_url: "https://aioits-backend-q6ihv4us2q-uc.a.run.app",
+    email: "",
+    password: "",
     loading: false,
     sidebar: false,
+    error: null,
+    token: localStorage.getItem("token"),
     is_profile: false,
     history_pengisian_by_group: [],
     bahan_bakar: {
@@ -220,6 +228,28 @@ export const useApp = defineStore({
       } finally {
         this.loading = false;
       }
+    },
+    async login() {
+      this.loading = true;
+      try {
+        const result = await axios.post(this.base_url + "/auth/government", {
+          email: this.email,
+          password: this.password,
+        });
+        const data = result.data.data;
+        localStorage.setItem("token", data.access_token);
+        router.push("/sekilas");
+      } catch (error) {
+        console.log(error);
+        this.error = error;
+      } finally {
+        this.loading = false;
+      }
+    },
+    logout() {
+      localStorage.removeItem("token");
+      this.token = null;
+      router.push("/");
     },
   },
   getters: {
