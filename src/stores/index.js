@@ -244,6 +244,8 @@ export const useApp = defineStore({
         this.error = error;
       } finally {
         this.loading = false;
+        this.email = "";
+        this.password = "";
       }
     },
     logout() {
