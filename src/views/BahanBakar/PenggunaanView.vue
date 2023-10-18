@@ -12,7 +12,7 @@
       </TitleContent>
       <!-- modal for time -->
       <Modal
-        class=""
+        class="hidden"
         title="Rentang"
         custom_class="right-0 -top-6"
         @cancel="app.cancelFunction"
